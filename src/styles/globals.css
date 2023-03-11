@@ -1,0 +1,32 @@
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0.6em;
+  text-shadow: 0.2ch .3ch 0.2em #3c3c3c;
+  margin-top: 15vh;
+  padding: 5px;
+}
+
+.treeStructMain, .treeStructMenu1 {
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  gap: 0;
+}
+
+.treeStructMain {
+  grid-template-columns: 70px 1px 40px 30% 40px 1px 70px;
+}
+.treeStructMenu1 {
+  grid-template-columns: 20px 40px 20px;
+  grid-template-rows: 20px auto 20px;
+}
+
+
+
