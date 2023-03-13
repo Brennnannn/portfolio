@@ -1,7 +1,7 @@
-import logo from './logo.svg';
 import './styles/globals.css';
 import React, { useState, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
+import Octogon from './shapes/Octogon.js' 
 
 const title = "Brennan Zaleski"
 
@@ -56,65 +56,16 @@ function App() {
         }}></div>
 
         <div style={{
+          display: 'none',
           marginLeft: '-1px',
           marginTop: '40px',
           borderLeft: '#3c3c3c 1px solid',
           height: '180px',
         }}></div>
 
-        <div className='treeStructMenu1' style={{marginTop: '100px', marginLeft: '-2px'}}>
-          <div style={{                     //Upper Left Corner
-            marginTop: '100%',
-            width: '141%',
-            transform: 'rotate(-45deg)',
-            transformOrigin: 'top left',
-            borderTop: '#3c3c3c 1px solid',
-          }}></div>
-
-          <div style={{borderTop: '#3c3c3c 1px solid'}}></div>      
-
-          <div style={{                     //Upper Right Corner
-            marginLeft: '-0.25px',
-            width: '141%',
-            transform: 'rotate(45deg)',
-            transformOrigin: 'top left',
-            borderTop: '#3c3c3c 1px solid',
-          }}></div>
-
-          <div></div>
-
-          <div style={{                   //Text field
-            width: '100%',
-            height: '80px',
-          }}>Test</div>
-
-          <div style={{                   //Right side bar
-            marginLeft: '-0.9px',
-            width: '100%',
-            borderRight: '#3c3c3c 1px solid',
-            height: '100px',
-          }}></div>
-
-          <div style={{                 //Lower left corner
-            marginTop: '-0.55px',
-            marginLeft: '0.5px',
-            width: '141%',
-            transform: 'rotate(45deg)',
-            transformOrigin: 'top left',
-            borderTop: '#3c3c3c 1px solid',
-          }}></div>
-
-          <div style={{borderBottom: '#3c3c3c 1px solid'}}></div>
-
-          <div style={{                 //Lower right corner
-            marginTop: '100%',
-            width: '141%',
-            transform: 'rotate(-45deg)',
-            transformOrigin: 'top left',
-            borderTop: '#3c3c3c 1px solid',
-          }}></div>
-
-        </div>
+        <Octogon
+        width={'40'}
+        bezelSide={'20'} />
         
       </div>
 
