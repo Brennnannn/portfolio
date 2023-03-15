@@ -64,8 +64,9 @@ function App() {
         }}></div>
 
         <Octogon
-        width={'40'}
-        bezelSide={'20'} />
+        height='50'
+        width='50'
+        bezel='50'/>
         
       </div>
 

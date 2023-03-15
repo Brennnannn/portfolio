@@ -1,22 +1,22 @@
 import { useTrail, animated } from "react-spring"
-import { useEffect, useState } from "react"
 
-function Octogon() {    //Height, width, bezelside content, cycle direction??
+function Octogon(props) {    // cycle direction, Cycle start, Content
     
-    const [currentRender, setCurrentRender] = useState(0)
+    let heightF = props.height ? (props.height + 'px') : 'auto'
+    let widthF = props.width ? (props.width + 'px') : 'auto'
+    let bezelF = props.bezel ? (props.bezel + 'px') : 'auto'
 
     const elements = useTrail(8, ({
-        from: { borderImage: 'linear-gradient(to right, #000 0%, transparent 0%) 100% 1' },
-        to: { borderImage: 'linear-gradient(to right, #000 100%, transparent 100%) 100% 1' },
+        from: { borderImage: 'linear-gradient(45deg, rgb(0,0,0, 1) 0%, rgb(0,0,0,0) 0%) 1' },
+        to: { borderImage: 'linear-gradient(45deg, rgb(0,0,0, 1) 100%, rgb(0,0,0,0) 100%) 1' },
       }));
-    
     
     return (
         <div className='treeStructMenu1' style={{
             marginTop: '100px',
             marginLeft: '-2px',
-            gridTemplateColumns: '20px 40px 20px',
-            gridTemplateRows: '20px auto 20px',
+            gridTemplateColumns: bezelF + ' ' + widthF + ' ' + bezelF,
+            gridTemplateRows: bezelF + ' ' + heightF + ' ' + bezelF,
             }}>
 
         <animated.div style={{                     //Upper Left Corner
@@ -28,7 +28,7 @@ function Octogon() {    //Height, width, bezelside content, cycle direction??
             ...elements[0]
         }} />
 
-        <animated.div  style={{
+        <animated.div  style={{                    //Uper boarder
             ...{borderTop: '#3c3c3c 1px solid'},
             ...elements[1]}} />      
 
@@ -41,12 +41,11 @@ function Octogon() {    //Height, width, bezelside content, cycle direction??
           ...elements[2]
         }} />
 
-        <animated.div  style={{                   //Left side bar
+        <animated.div  style={{                   //Left border
           ...{marginRight: '-0.9px',
-          width: '100%',
-          LeftRight: '#3c3c3c 1px solid',
-          height: '100px',},
-          ...elements[3]
+          borderLeft: '#3c3c3c 1px solid',
+          height: heightF,},
+          ...elements[7]
         }} />
 
         <div style={{                   //Text field
@@ -54,35 +53,39 @@ function Octogon() {    //Height, width, bezelside content, cycle direction??
           height: '80px',
         }}>Test</div>
 
-        <animated.div  style={{                   //Right side bar
+        <animated.div  style={{                   //Right border
           ...{marginLeft: '-0.9px',
           width: '100%',
           borderLeft: '#3c3c3c 1px solid',
-          height: '100px',},
-          ...elements[4]
+          transform: 'rotate(180deg)',
+          transformOrigin: 'center',
+          height: heightF,},
+          ...elements[3]
         }} />
 
         <animated.div  style={{                 //Lower left corner
-          ...{marginTop: '-0.55px',
-          marginLeft: '0.5px',
+          ...{ marginLeft: '100%',
+          marginBottom: '0.65px',
           width: '141%',
-          transform: 'rotate(45deg)',
-          transformOrigin: 'top left',
-          borderTop: '#3c3c3c 1px solid',},
-            ...elements[5]
+          transform: 'rotate(225deg)',
+          transformOrigin: 'bottom left',
+          borderBottom: '#3c3c3c 1px solid',},
+            ...elements[6]
         }} />
 
-        <animated.div  style={{
-            ...{borderBottom: '#3c3c3c 1px solid'},
-            ...elements[6]}} />
+        <animated.div  style={{                 //Bottom border
+            ...{borderTop: '#3c3c3c 1px solid'},
+            transform: 'rotate(180deg)',
+            transformOrigin: 'center',
+            ...elements[5]}} />
 
         <animated.div  style={{                 //Lower right corner
-          ...{marginTop: '100%',
+          ...{marginLeft: '100%',
           width: '141%',
-          transform: 'rotate(-45deg)',
+          transform: 'rotate(135deg)',
           transformOrigin: 'top left',
           borderTop: '#3c3c3c 1px solid',},
-          ...elements[7]
+          ...elements[4]
         }} />
 
       </div>
