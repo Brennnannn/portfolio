@@ -4,18 +4,19 @@ import { useSpring, animated } from 'react-spring';
 import Octogon from './shapes/Octogon.js' 
 
 const title = "Brennan Zaleski"
+const content = "coming soon"
 
 function App() {
 
   const [typedTitle, setTypedTitle] = useState('')
+  const [typedContent, setTypedContent] = useState('')
   const [linePrep, setLinePrep] = useState(0)
-  const [lineOneAnimate, setLineOneAnimate] = useState(false)
 
   useEffect(() => {
     let i = 0;
     const timer = setInterval(() => {
       setTypedTitle(title.slice(0, i))
-      i++
+      ++i
       if (i > title.length) {
         clearInterval(timer)
         setLinePrep(1)
@@ -25,8 +26,19 @@ function App() {
   }, [title])
 
   useEffect(() => {
+    let i = content.length;
+    const timer = setInterval(() => {
+      setTypedContent(content.slice(i, content.length))
+      --i
+      if (i < 0) {
+        clearInterval(timer)
+      }
+    }, 87);
+    return () => clearInterval(timer)
+  }, [content])
+
+  useEffect(() => {
     if (linePrep === 1) {
-      setLineOneAnimate(true)
     }
   }, [linePrep])
 
@@ -47,27 +59,12 @@ function App() {
         <div></div>
         <div></div>
         <animated.div style={{...{borderTop: '#3c3c3c 1px solid'}, ...spring }}> </animated.div>
-        
-        <div style={{
-          width: '141%',
-          transform: 'rotate(45deg)',
-          transformOrigin: 'top left',
-          borderTop: '#3c3c3c 1px solid',
-        }}></div>
-
-        <div style={{
-          display: 'none',
-          marginLeft: '-1px',
-          marginTop: '40px',
-          borderLeft: '#3c3c3c 1px solid',
-          height: '180px',
-        }}></div>
-
-        <Octogon
-        width={'40'}
-        bezelSide={'20'} />
-        
       </div>
+      <h1 className='center' style={{fontSize: '20px'}}>
+      <span style={{opacity: 0}}>{content.substring(typedContent.length)}</span>
+      <span>{typedContent}</span>
+      </h1>
+
 
     </main>
   );

@@ -1,13 +1,10 @@
 import { useTrail, animated } from "react-spring"
-import { useEffect, useState } from "react"
 
 function Octogon() {    //Height, width, bezelside content, cycle direction??
-    
-    const [currentRender, setCurrentRender] = useState(0)
 
     const elements = useTrail(8, ({
-        from: { borderImage: 'linear-gradient(to right, #000 0%, transparent 0%) 100% 1' },
-        to: { borderImage: 'linear-gradient(to right, #000 100%, transparent 100%) 100% 1' },
+        from: { borderImage: 'linear-gradient(to top right, #000 0%, transparent 0%) 100% 1' },
+        to: { borderImage: 'linear-gradient(to right top, #000 100%, transparent 0%) 100% 1' },
       }));
     
     
@@ -44,9 +41,9 @@ function Octogon() {    //Height, width, bezelside content, cycle direction??
         <animated.div  style={{                   //Left side bar
           ...{marginRight: '-0.9px',
           width: '100%',
-          LeftRight: '#3c3c3c 1px solid',
+          borderLeft: '#3c3c3c 1px solid',
           height: '100px',},
-          ...elements[3]
+          ...elements[7]
         }} />
 
         <div style={{                   //Text field
@@ -57,9 +54,9 @@ function Octogon() {    //Height, width, bezelside content, cycle direction??
         <animated.div  style={{                   //Right side bar
           ...{marginLeft: '-0.9px',
           width: '100%',
-          borderLeft: '#3c3c3c 1px solid',
+          borderRight: '#3c3c3c 1px solid',
           height: '100px',},
-          ...elements[4]
+          ...elements[3]
         }} />
 
         <animated.div  style={{                 //Lower left corner
@@ -69,12 +66,14 @@ function Octogon() {    //Height, width, bezelside content, cycle direction??
           transform: 'rotate(45deg)',
           transformOrigin: 'top left',
           borderTop: '#3c3c3c 1px solid',},
-            ...elements[5]
+            ...elements[6]
         }} />
 
         <animated.div  style={{
-            ...{borderBottom: '#3c3c3c 1px solid'},
-            ...elements[6]}} />
+            ...{borderTop: '#3c3c3c 1px solid',
+            transform: 'rotate(180deg)',
+            transformOrigin: 'center',},
+            ...elements[5]}} />
 
         <animated.div  style={{                 //Lower right corner
           ...{marginTop: '100%',
@@ -82,7 +81,7 @@ function Octogon() {    //Height, width, bezelside content, cycle direction??
           transform: 'rotate(-45deg)',
           transformOrigin: 'top left',
           borderTop: '#3c3c3c 1px solid',},
-          ...elements[7]
+          ...elements[4]
         }} />
 
       </div>
