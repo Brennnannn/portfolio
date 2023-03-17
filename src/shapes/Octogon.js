@@ -9,6 +9,7 @@ function Octogon(props) {    // cycle direction, Cycle start, Content
     const elements = useTrail(8, ({
         from: { borderImage: 'linear-gradient(45deg, rgb(0,0,0, 1) 0%, rgb(0,0,0,0) 0%) 1' },
         to: { borderImage: 'linear-gradient(45deg, rgb(0,0,0, 1) 100%, rgb(0,0,0,0) 100%) 1' },
+        immediate: false,
       }));
     
     return (
@@ -22,9 +23,9 @@ function Octogon(props) {    // cycle direction, Cycle start, Content
         <animated.div style={{                     //Upper Left Corner
           ...{marginTop: '100%',
           width: '141%',
+          borderTop: '#3c3c3c 1px solid',
           transform: 'rotate(-45deg)',
-          transformOrigin: 'top left',
-          borderTop: '#3c3c3c 1px solid',},
+          transformOrigin: 'top left',},
             ...elements[0]
         }} />
 
@@ -35,16 +36,16 @@ function Octogon(props) {    // cycle direction, Cycle start, Content
         <animated.div  style={{                     //Upper Right Corner
           ...{marginLeft: '-0.25px',
           width: '141%',
+          borderTop: '#3c3c3c 1px solid',
           transform: 'rotate(45deg)',
-          transformOrigin: 'top left',
-          borderTop: '#3c3c3c 1px solid',},
+          transformOrigin: 'top left',},
           ...elements[2]
         }} />
 
         <animated.div  style={{                   //Left border
           ...{marginRight: '-0.9px',
-          borderLeft: '#3c3c3c 1px solid',
-          height: heightF,},
+          height: heightF,
+          borderLeft: '#3c3c3c 1px solid',},
           ...elements[7]
         }} />
 
@@ -55,11 +56,11 @@ function Octogon(props) {    // cycle direction, Cycle start, Content
 
         <animated.div  style={{                   //Right border
           ...{marginLeft: '-0.9px',
+          height: heightF,
           width: '100%',
           borderLeft: '#3c3c3c 1px solid',
           transform: 'rotate(180deg)',
-          transformOrigin: 'center',
-          height: heightF,},
+          transformOrigin: 'center',},
           ...elements[3]
         }} />
 
@@ -67,9 +68,9 @@ function Octogon(props) {    // cycle direction, Cycle start, Content
           ...{ marginLeft: '100%',
           marginBottom: '0.65px',
           width: '141%',
+          borderBottom: '#3c3c3c 1px solid',
           transform: 'rotate(225deg)',
-          transformOrigin: 'bottom left',
-          borderBottom: '#3c3c3c 1px solid',},
+          transformOrigin: 'bottom left',},
             ...elements[6]
         }} />
 
@@ -82,9 +83,9 @@ function Octogon(props) {    // cycle direction, Cycle start, Content
         <animated.div  style={{                 //Lower right corner
           ...{marginLeft: '100%',
           width: '141%',
+          borderTop: '#3c3c3c 1px solid',
           transform: 'rotate(135deg)',
-          transformOrigin: 'top left',
-          borderTop: '#3c3c3c 1px solid',},
+          transformOrigin: 'top left',},
           ...elements[4]
         }} />
 

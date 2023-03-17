@@ -1,7 +1,9 @@
 import './styles/globals.css';
 import React, { useState, useEffect } from 'react';
-import { useSpring, animated } from 'react-spring';
-import Octogon from './shapes/Octogon.js' 
+import Initial from './stages/Initial';
+
+import Octogon from './shapes/Octogon.js'
+
 
 const title = "Brennan Zaleski"
 
@@ -30,11 +32,6 @@ function App() {
     }
   }, [linePrep])
 
-  const spring = useSpring({
-      from: { borderImage: 'linear-gradient(to right, #000 0%, transparent 0%) 100% 1' },
-      to: { borderImage: 'linear-gradient(to right, #000 100%, transparent 100%) 100% 1' }, 
-  })
-
   return (
     <main>
       <h1 className='center'>
@@ -42,33 +39,7 @@ function App() {
         <span style={{opacity: 0}}>{title.substring(typedTitle.length)}</span>
       </h1>
 
-      <div className='treeStructMain'>
-        <div></div>
-        <div></div>
-        <div></div>
-        <animated.div style={{...{borderTop: '#3c3c3c 1px solid'}, ...spring }}> </animated.div>
-        
-        <div style={{
-          width: '141%',
-          transform: 'rotate(45deg)',
-          transformOrigin: 'top left',
-          borderTop: '#3c3c3c 1px solid',
-        }}></div>
-
-        <div style={{
-          display: 'none',
-          marginLeft: '-1px',
-          marginTop: '40px',
-          borderLeft: '#3c3c3c 1px solid',
-          height: '180px',
-        }}></div>
-
-        <Octogon
-        height='50'
-        width='50'
-        bezel='50'/>
-        
-      </div>
+      <Initial />
 
     </main>
   );
